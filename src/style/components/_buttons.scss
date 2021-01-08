@@ -17,7 +17,7 @@
     left: 0;
     bottom: 0;
     z-index: -1;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.7s;
   }
 }
 
@@ -28,11 +28,11 @@
   border-image: linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $secondary-color 80%
   );
   border-image-slice: 1;
   @include supportIE11() {
-    color:$secondary-color !important;
+    color:transparent !important;
     &:hover {
       color:$white-color !important;
     }
@@ -70,7 +70,110 @@
   }
 }
 
-/* Resume Style */
+
+
+/* About Style */
+.cta-btn--about {
+  -webkit-text-fill-color:$white-color;
+  @supports (-webkit-background-clip:text) or (background-clip:text) {
+  }
+  border: 2px solid transparent;
+  border-color: white;
+  border-image-slice: 1;
+  @include supportIE11() {
+    color:$white-color !important;
+    &:hover {
+      color:$secondary-color !important;
+    }
+  }
+  // Responsive Button about style
+  @include respond(phone) {
+    background-image: linear-gradient(
+      135deg,
+      $primary-color 0%,
+      $secondary-color 100%
+    );
+    border: 2px solid transparent;
+    border-color: white;
+    -webkit-text-fill-color: white;
+    text-decoration-color: white;
+  }
+
+  &::after {
+    background-color: white;
+    // Responsive Button about style
+    @include respond(phone) {
+      background-image: none;
+    }
+  }
+
+  &:hover {
+    -webkit-text-fill-color: $secondary-color;
+    text-decoration: none;
+    // Responsive Button hover about style
+    @include respond(phone) {
+      -webkit-text-fill-color: $secondary-color;
+    }
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+
+/* Skills Style */
+.cta-btn--skills {
+  @include supportColorForIE11();
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 80%
+  );
+  border-image-slice: 1;
+  @include supportIE11() {
+    color:transparent !important;
+    &:hover {
+      color:$white-color !important;
+    }
+  }
+  // Responsive Button skills style
+  @include respond(phone) {
+    background-image: none;
+    border: 2px solid $secondary-color;
+    -webkit-text-fill-color: $secondary-color;
+  }
+
+  &::after {
+    background-image: linear-gradient(
+      135deg,
+      $primary-color 0%,
+      $secondary-color 100%
+    );
+    // Responsive Button skills style
+    @include respond(phone) {
+      background-image: none;
+    }
+  }
+
+  &:hover {
+    -webkit-text-fill-color: $white-color;
+    text-decoration: none;
+    // Responsive Button hover skills style
+    @include respond(phone) {
+      -webkit-text-fill-color: $secondary-color;
+    }
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+
+
+/* Contact Style */
 .cta-btn--resume {
   color: $white-color;
   border: 2px solid $white-color;

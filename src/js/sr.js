@@ -51,6 +51,8 @@ export default function() {
       }, defaultProps)
   );
 
+  /*Skills Section*/
+
   /* Projects Section */
   ScrollReveal().reveal('.project-wrapper__text', 
     assignProps(
