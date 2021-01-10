@@ -40,45 +40,40 @@
     }
   }
 
-  /* Charts */
-  /**
-   * 1. The `reverse` animation direction plays the animation backwards
-   *    which makes it start at the stroke offset 100 which means displaying
-   *    no stroke at all and animating it to the value defined in the SVG
-   *    via the inline `stroke-dashoffset` attribute.
-   * 2. Rotate by -90 degree to make the starting point of the
-   *    stroke the top of the circle.
-   * 3. Using CSS transforms on SVG elements is not supported by Internet Explorer
-   *    and Edge, use the transform attribute directly on the SVG element as a
-   * .  workaround (https://markus.oberlehner.net/blog/pure-css-animated-svg-circle-chart/#part-4-internet-explorer-strikes-back).
-   */
-  .circle-chart__circle {
-    animation: circle-chart-fill 3s reverse; /* 1 */ 
-    transform: rotate(-90deg); /* 2, 3 */
-    transform-origin: center; /* 4 */
+  .container{
+    display: grid;
+    grid-gap: 20px; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: 1fr;
   }
 
-  .circle-chart__info {
-    animation: circle-chart-appear 2s forwards;
-    opacity: 0;
-    transform: translateY(0.3em);
+  .zone {
+      cursor:pointer;
+      display:block;
+      text-align: center;
+      font-size:10em;
+      border-radius:4px;
+      transition: all 0.3s linear;
   }
 
-  @keyframes circle-chart-fill {
-    to { stroke-dasharray: 0 100; }
+  img {
+	  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	  filter: grayscale(100%);
+	  &:hover {
+	  	filter: none;
+	  }
+	}
+
+
+
+  .zone:hover {
+      -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+      -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+      -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+      box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+	    transform: scale(1.2);
   }
 
-  @keyframes circle-chart-appear {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @media (min-width: 31em) {
-    .grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
 
   .hero-cta {
     display: flex;
